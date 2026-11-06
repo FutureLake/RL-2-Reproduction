@@ -1,0 +1,22 @@
+{
+  "environment": "tabular_mdp",
+  "seed": 20261029,
+  "num_states": 5,
+  "num_actions": 3,
+  "max_episode_len": 5,
+  "meta_episode_len": 20,
+  "num_features": 32,
+  "max_pol_iters": 5,
+  "meta_episodes_per_policy_update": 16,
+  "meta_episodes_per_learner_batch": 8,
+  "ppo_opt_epochs": 2,
+  "ppo_clip_param": 0.1,
+  "ppo_ent_coef": 0.01,
+  "discount_gamma": 0.99,
+  "gae_lambda": 0.3,
+  "adam_lr": 0.0002,
+  "adam_eps": 0.00001,
+  "adam_wd": 0.01,
+  "eval_seed_start": 910000,
+  "eval_trials": 32
+}

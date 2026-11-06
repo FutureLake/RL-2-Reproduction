@@ -1,0 +1,12 @@
+{
+  "environment": "bandit", "seed": 20261029,
+  "num_states": 1, "num_actions": 5, "max_episode_len": 1,
+  "meta_episode_len": 100, "num_features": 256,
+  "updates": 200, "trials_per_update": 2400, "learner_batch_trials": 480,
+  "ppo_opt_epochs": 8, "ppo_clip_param": 0.1, "ppo_ent_coef": 0.01,
+  "discount_gamma": 0.99, "gae_lambda": 0.3,
+  "adam_lr": 0.0002, "adam_eps": 0.00001, "adam_wd": 0.01,
+  "validation_trials": 256, "test_trials": 1000, "validate_every": 20,
+  "eval_batch_size": 250, "device": "cuda", "torch_threads": 2, "use_cuda_graph": true,
+  "paper_reference_return": 78.7, "paper_random_reference_return": 49.9
+}

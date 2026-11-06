@@ -1,0 +1,63 @@
+protocol: rl2-task3-from-scratch-v2
+scope: visual_navigation_only
+data_root: data/task3/rl2-task3-from-scratch-v2
+env:
+  engine: vizdoom
+  mode: synchronous
+  maze_size: 5
+  cell_size_doom: 128
+  forward_distance_cells: 0.2
+  turn_degrees: 5
+  ticks_per_action: 4
+  episodes_per_trial: 2
+  max_steps_per_episode: 250
+  same_start_pose_within_trial: true
+  reward_goal: 1.0
+  reward_step: -0.04
+  reward_collision: -0.001
+observation:
+  width: 40
+  height: 30
+  channels: 3
+  resize: area
+  normalization: minus_one_to_one
+  privileged_inputs: false
+model:
+  conv_channels: [16, 16]
+  conv_kernels: [5, 5]
+  conv_strides: [2, 2]
+  conv_padding: 0
+  action_embedding_dim: 256
+  fusion_dim: 256
+  recurrent_cell: upstream_relu_layernorm_gru
+  recurrent_hidden_dim: 256
+  shared_actor_critic: true
+  pretrained_weights: null
+  train_visual_encoder: true
+ppo:
+  gamma: 0.99
+  gae_lambda: 0.99
+  optimizer: adamw
+  learning_rate: 0.0003
+  adam_eps: 0.00001
+  weight_decay: 0.0
+  clip_epsilon: 0.2
+  value_loss: huber
+  value_coef: 0.5
+  entropy_coef: 0.01
+  max_grad_norm: 0.5
+  standardize_advantages: false
+  epochs: 2
+  minibatch_trials: 4
+  full_trial_bptt: true
+  epoch_stop_kl: 0.03
+run:
+  profile: smoke
+  device: cpu
+  num_envs: 1
+  seed: 0
+  mode: rl2
+  updates: 5
+  trials_per_update: 8
+  max_training_steps: 20000
+  resume: false
